@@ -16,11 +16,21 @@ public class LetterController {
     public LetterRepository letterRepository;
 
 
+//    @GetMapping("/api/letter")
+//    public ResponseEntity<List<LetterEntity>> getLetters() {
+//        List<LetterEntity> letterEntities = letterService.getList();
+//        return ResponseEntity.status(HttpStatus.OK).body(letterEntities);
+//    }
+
     @GetMapping("/api/letter")
-    public ResponseEntity<List<LetterEntity>> getLetters() {
+    public ResponseEntity<LetterListReturn> getLetters() {
         List<LetterEntity> letterEntities = letterService.getList();
-        return ResponseEntity.status(HttpStatus.OK).body(letterEntities);
+        int count = letterEntities.size();
+
+        LetterListReturn response = new LetterListReturn(letterEntities, count);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
 
     @PostMapping("/api/letter/write")
     public ResponseEntity<LetterEntity> createLetter(@RequestBody LetterDto letterDto) {
