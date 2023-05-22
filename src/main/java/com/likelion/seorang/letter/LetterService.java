@@ -31,7 +31,7 @@ public class LetterService {
     // 목록 조회
     @Transactional(readOnly = true)
     public List<LetterEntity> getList() {
-        return letterRepository.findAll();
+        return letterRepository.findAllByOrderByIdDesc();
     }
 
     // 1개 조회 - id
