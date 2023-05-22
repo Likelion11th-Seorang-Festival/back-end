@@ -23,7 +23,6 @@ public class LetterController {
 //    }
 
     @GetMapping("/api/letter")
-    @CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.HEAD})
     public ResponseEntity<LetterListReturn> getLetters() {
         List<LetterEntity> letterEntities = letterService.getList();
         int count = letterEntities.size();
@@ -34,7 +33,6 @@ public class LetterController {
 
 
     @PostMapping("/api/letter/write")
-    @CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.HEAD})
     public ResponseEntity<LetterEntity> createLetter(@RequestBody LetterDto letterDto) {
         Long letterId = letterService.saveLetter(letterDto);
         LetterEntity letter = letterRepository.findById(letterId).orElseThrow(EntityNotFoundException::new);
@@ -42,7 +40,6 @@ public class LetterController {
     }
 
     @GetMapping("/api/letter/{id}")
-    @CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.HEAD})
     public ResponseEntity<LetterDto> getLetterDtl(@PathVariable("id") Long id) {
         LetterDto letterDto = letterService.getLetter(id);
         return ResponseEntity.status(HttpStatus.OK).body(letterDto);
