@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface LetterRepository extends JpaRepository<LetterEntity, Long> {
 
+    List<LetterEntity> findAllByOrderByIdDesc();
+
 }
