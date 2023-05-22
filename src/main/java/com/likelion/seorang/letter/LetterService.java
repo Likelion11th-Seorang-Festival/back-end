@@ -20,6 +20,7 @@ public class LetterService {
 
         LetterEntity letter = LetterEntity.builder()
                 .content(letterDto.getContent())
+                .background(letterDto.getBackground())
                 .build();
 
         letterRepository.save(letter);
@@ -40,6 +41,7 @@ public class LetterService {
         LetterDto letterDto = new LetterDto();
         letterDto.setId(letter.getId());
         letterDto.setContent(letter.getContent());
+        letterDto.setBackground(letter.getBackground());
         return letterDto;
     }
 

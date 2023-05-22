@@ -11,9 +11,12 @@ public class LetterDto {
 
     private String content;
 
+    private Integer background;
+
     public LetterDto(LetterEntity letterEntity){
         this.id = letterEntity.getId();
         this.content = letterEntity.getContent();
+        this.background = letterEntity.getBackground();
     }
 
     public LetterDto() {
