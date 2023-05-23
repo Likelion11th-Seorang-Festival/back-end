@@ -24,7 +24,7 @@ public class SecurityConfig {
                 .cors() // CORS 설정 추가
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/**").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated();
 
         return http.build();
