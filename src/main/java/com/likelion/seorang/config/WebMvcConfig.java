@@ -10,6 +10,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // 모든 경로에 대해 CORS 설정 적용
+                .allowedOrigins("https://main--starlit-dango-2f6c05.netlify.app/")
                 .allowedOriginPatterns("*")
                 .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE", "HEAD") // 허용할 HTTP 메서드 설정
                 .allowedHeaders("*") // 허용할 요청 헤더 설정
