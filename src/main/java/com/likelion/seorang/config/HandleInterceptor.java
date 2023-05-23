@@ -10,10 +10,10 @@ public class HandleInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        if (HttpMethod.OPTIONS.matches(request.getMethod())) {
-            return true;
-        }
-        return false;
+//        if (HttpMethod.OPTIONS.matches(request.getMethod())) {
+//            return true;
+//        }
+        return true;
     }
 
 }
